@@ -1,0 +1,44 @@
+
+package main
+// Дано холодное и горячее хранилище. Необходимо реализовать метод Handle, после вызова которого
+// должно быть гарантировано,
+// что эти данные могут быть сразу получены. Запись
+// в холодное хранилище должно давать гарантию At most
+// once
+type HotClient interface {
+	// 10 мс
+	Append(key, value) error
+	Close()
+}
+
+func NewHotClient() HotClientImpl {}
+
+type EventAction struct {
+	key   string
+	value string
+}
+
+type FreezeClient interface {
+	// 100 мс
+	Send(actions []EventAction) error
+	Close()
+}
+
+func NewFreezeClient() FreezeClientImpl {}
+
+type Handler struct {
+	// todo
+}
+
+func NewHandler() Handler {
+	// todo
+}
+
+func (h *Handler) Handle(key, value string) {
+	// todo
+}
+
+func main() {
+	server := ...
+	handler := NewHandler()
+}
